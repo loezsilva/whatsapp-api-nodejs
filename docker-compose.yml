@@ -1,25 +1,25 @@
 version: '3.8'
 
 services:
-    web: 
-        image: nginx:latest
+    nginx-proxy:
         restart: always
-        volumes:
-            - ./public:/var/www/html
-            - ./conf.d:/etc/nginx/conf.d
-            - ./certbot/conf:/etc/nginx/ssl
-            - ./certbot/data:/var/www/certbot
+        image: jwilder/nginx-proxy
         ports:
-            - 80:80
-            - 443:443
-
-    certbot:
-        image: certbot/certbot:latest
-        command: certonly --webroot --webroot-path=/var/www/certbot --email ${CERTBOT_PORT} --agree-tos --no-eff-email -d ${CERTBOT_DOMAIN} -d www.${CERTBOT_DOMAIN}
+        - "80:80"
+        - "443:443"
         volumes:
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/logs:/var/log/letsencrypt
-            - ./certbot/data:/var/www/certbot
+        - "/etc/nginx/vhost.d"
+        - "/usr/share/nginx/html"
+        - "/var/run/docker.sock:/tmp/docker.sock:ro"
+        - "/etc/nginx/certs"
+
+    letsencrypt-nginx-proxy-companion:
+        restart: always
+        image: jrcs/letsencrypt-nginx-proxy-companion
+        volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+        volumes_from:
+        - "nginx-proxy"
 
     mongodb:
         container_name: mongodb
@@ -37,7 +37,7 @@ services:
             args:
                 - PORT=${PORT}
         depends_on:
-            - web
+            - nginx
             - mongodb
         restart: unless-stopped
         env_file: .env
