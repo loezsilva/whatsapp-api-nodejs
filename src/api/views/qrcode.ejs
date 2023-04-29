@@ -10,15 +10,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        h1, small {
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <h1> Scanei o QR e volte fechar esta página<h1>
     <div class="container">
-        <h1> Scanei o QR e volte fechar esta página<h1>
         <img src="<%= qrcode %>" alt="" id="qrcode_box" />
-        <small>Antes de fechar a página certifique-se de que o aparelho foi conectado corretamente ai whatsapp</small>
     </div>
+    <small>Antes de fechar a página certifique-se de que o aparelho foi conectado corretamente ai whatsapp</small>
 </body>
 </html>
