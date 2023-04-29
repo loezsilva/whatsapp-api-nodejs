@@ -37,7 +37,7 @@ services:
             args:
                 - PORT=${PORT}
         depends_on:
-            - nginx
+            - nginx-proxy
             - mongodb
         restart: unless-stopped
         env_file: .env
