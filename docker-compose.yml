@@ -55,9 +55,9 @@ services:
             - WEBHOOK_ENABLED=${WEBHOOK_ENABLED}
             - WEBHOOK_URL=${WEBHOOK_URL}
             - WEBHOOK_BASE64=${WEBHOOK_BASE64}
-            - VIRTUAL_HOST=web.intera.tips
-            - LETSENCRYPT_HOST=web.intera.tips
-            - LETSENCRYPT_EMAIL=luizinho_545@hotmail.com
+            - VIRTUAL_HOST=${APP_URL}
+            - LETSENCRYPT_HOST=${APP_URL}
+            - LETSENCRYPT_EMAIL=""
         volumes:
             - ./:/home/node/app
             - /home/node/app/node_modules/
