@@ -17,6 +17,14 @@ services:
             - "/usr/share/nginx/html"
             - "/etc/nginx/certs"
 
+    nginx-letsencrypt:
+        restart: always
+        image: jrcs/letsencrypt-nginx-proxy-companion
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock:ro"
+        volumes_from:
+            - "nginx"
+        
     mongodb:
         container_name: mongodb
         image: mongo:latest
@@ -46,6 +54,8 @@ services:
             - WEBHOOK_ENABLED=${WEBHOOK_ENABLED}
             - WEBHOOK_URL=${WEBHOOK_URL}
             - WEBHOOK_BASE64=${WEBHOOK_BASE64}
+            - VIRTUAL_HOST=web.intera.tips
+            - LETSENCRYPT_HOST=web.intera.tips
         volumes:
             - ./:/home/node/app
             - /home/node/app/node_modules/
