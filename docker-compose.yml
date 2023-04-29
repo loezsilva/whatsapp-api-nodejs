@@ -7,6 +7,7 @@ services:
         container_name: nginx
         depends_on:
             - app
+            - letsencrypt-nginx-proxy-companion
         ports:
             - "80:80"
             - "443:443"
@@ -15,18 +16,16 @@ services:
             - "/home/whatsapp/nginx/nginx.conf:/etc/nginx/nginx.conf"
             - "/home/whatsapp:/etc/nginx/vhost.d"
             - "/home/whatsapp/usr/share/nginx/html:/usr/share/nginx/html"
-            - "/home/whatsapp/certs:/etc/nginx/certs:ro"
+            - "/home/whatsapp/certs:/etc/nginx/certs"
 
     letsencrypt-nginx-proxy-companion:
         image: jrcs/letsencrypt-nginx-proxy-companion
         container_name: letsencrypt-nginx-proxy-companion
-        depends_on:
-            - nginx
         volumes_from:
             - nginx
         volumes:
             - "/var/run/docker.sock:/var/run/docker.sock:ro"
-            - "../../../volumes/proxy/certs:/etc/nginx/certs:rw"
+            - "/home/whatsapp/certs:/etc/nginx/certs:rw"
         
     mongodb:
         container_name: mongodb
