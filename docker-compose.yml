@@ -57,7 +57,7 @@ services:
             - WEBHOOK_BASE64=${WEBHOOK_BASE64}
             - VIRTUAL_HOST=${APP_URL}
             - LETSENCRYPT_HOST=${APP_URL}
-            - LETSENCRYPT_EMAIL=""
+            - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
         volumes:
             - ./:/home/node/app
             - /home/node/app/node_modules/
