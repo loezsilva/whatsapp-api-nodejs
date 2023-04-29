@@ -37,7 +37,7 @@ services:
             args:
                 - PORT=${PORT}
         depends_on:
-            - webserver
+            - web
             - mongodb
         restart: unless-stopped
         env_file: .env
