@@ -16,15 +16,6 @@ services:
             - "/home/whatsapp:/etc/nginx/vhost.d"
             - "/home/whatsapp/usr/share/nginx/html:/usr/share/nginx/html"
             - "/home/whatsapp/certs:/etc/nginx/certs"
-
-    letsencrypt-nginx-proxy-companion:
-        image: jrcs/letsencrypt-nginx-proxy-companion
-        container_name: letsencrypt-nginx-proxy-companion
-        volumes_from:
-            - nginx
-        volumes:
-            - "/var/run/docker.sock:/var/run/docker.sock:ro"
-            - "/home/whatsapp/certs:/etc/nginx/certs:rw"
         
     mongodb:
         container_name: mongodb
