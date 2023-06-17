@@ -1,29 +1,33 @@
 # Instalação
 
-1. Clone o repositorio: 
+1. Instale o docker-compose
+
+    apt install docker-compose
+
+2. Clone o repositorio: 
     
     git clone https://github.com/salman0ansari/whatsapp-api-nodejs.git
 
-2. Entre na pasta do projeto.
+3. Entre na pasta do projeto.
 
-3. Altera os arquivos 
+4. Altera os arquivos 
     
     docker-compose.yml, src/config/express.js, package.json
 
-4. Instale o yarn seguinte esse tutorial:
+5. Instale o yarn seguinte esse tutorial:
     
     https://linuxhint.com/install_yarn_ubuntu/
 
-5. Sete o yearn como global
+6. Sete o yearn como global
     
     sudo npm install -g yarn
     
-6. Execute o yarn
+7. Execute o yarn
     
     sudo yarn install
 
-7. Crie o .env
+8. Crie o .env
 
-8. Rode o projeto
+9. Rode o projeto
     
     docker-compose up -d
