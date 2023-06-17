@@ -2,7 +2,7 @@
 
 1. Clone o repositorio: 
     
-    git clone https://github.com/salman0ansari/whatsapp-api-nodejs.git.
+    git clone https://github.com/salman0ansari/whatsapp-api-nodejs.git
 
 2. Entre na pasta do projeto.
 
@@ -14,12 +14,16 @@
     
     https://linuxhint.com/install_yarn_ubuntu/
 
-5. Execute o yarn
+5. Sete o yearn como global
     
-    yarn install
+    sudo npm install -g yarn
+    
+6. Execute o yarn
+    
+    sudo yarn install
 
-6. Crie o .env
+7. Crie o .env
 
-7. Rode o projeto
+8. Rode o projeto
     
     docker-compose up -d
