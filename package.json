@@ -5,9 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "node src/server.js",
-        "dev": "nodemon",
-        "format:check": "prettier --check .",
-        "format:write": "prettier --write ."
+        "dev": "nodemon"
     },
     "repository": "git@github.com:salman0ansari/whatsapp-api-nodejs.git",
     "author": "Mohd Salman Ansari <salman0ansariii@gmail.com>",
