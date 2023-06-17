@@ -8,7 +8,7 @@
 
 3. Altera os arquivos 
     
-    docker-compose.yml, src/config/express.js
+    docker-compose.yml, src/config/express.js, package.json
 
 4. Instale o yarn seguinte esse tutorial:
     
